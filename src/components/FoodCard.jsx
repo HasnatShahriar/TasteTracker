@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 
 
 const FoodCard = ({food}) => {
-  const{name,image,category,
+  const{_id,name,image,category,
     quantity,price,addedBy,origin,description} = food;
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg border-2 border-green-600 rounded-xl">
@@ -13,7 +14,7 @@ const FoodCard = ({food}) => {
         <p className="text-gray-700 text-base mb-2">Quantity: {quantity}</p>
       </div>
       <div className="px-6 py-4">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Details</button>
+        <Link to={`/food/${_id}`}><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Details</button></Link>
       </div>
     </div>
   );
