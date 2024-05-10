@@ -6,6 +6,8 @@ import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
 import AllFood from "../pages/AllFood/AllFood";
 import FoodDetails from "../components/FoodDetails";
+import Purchase from "../pages/Purchase/Purchase";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
         path: '/food/:id',
         element: <FoodDetails/>,
         loader: ({params})=>fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`)
+      },
+      {
+        path: '/purchase',
+        element: <PrivateRoute><Purchase/></PrivateRoute>
       }
     ]
   },
