@@ -14,7 +14,7 @@ const Purchase = () => {
   const food = useLoaderData();
   console.log(food);
 
-  const { _id, name, image, category,
+  const { _id, foodName, image, category,
     quantity, price, addedBy, origin, description } = food;
 
 
@@ -86,7 +86,7 @@ const Purchase = () => {
       <form onSubmit={handlePurchase}>
         <div className="flex flex-col space-y-4">
           <label className="text-lg font-semibold">Food Name:</label>
-          <input type="text" name="name" className="border rounded px-4 py-2"defaultValue={name}/>
+          <input type="text" name="name" className="border rounded px-4 py-2"defaultValue={foodName}/>
 
           <label className="text-lg font-semibold">Price:</label>
           <input type="text" name="price" className="border rounded px-4 py-2" defaultValue={price}/>
