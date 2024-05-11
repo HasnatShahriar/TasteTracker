@@ -1,157 +1,133 @@
 [
   {
-    "name": "Margherita Pizza",
+    "foodName": "Margherita Pizza",
     "image": "https://i.ibb.co/b2RLKtH/margherita-pizaa.jpg",
     "category": "Pizza",
     "quantity": 20,
     "price": 9.99,
-    "addedBy": {
-      "name": "John Doe",
-      "email": "john@example.com"
-    },
+    "name": "John Doe",
+    "email": "john@example.com",
     "origin": "Italy",
     "description": "Classic Italian pizza topped with tomato sauce, fresh mozzarella cheese, and basil leaves. Made with thin crust and baked to perfection in a wood-fired oven."
   },
   {
-    "name": "Chicken Alfredo Pasta",
+    "foodName": "Chicken Alfredo Pasta",
     "image": "https://i.ibb.co/ZgwvBRb/Chicken-Alfredo-Pasta.jpg",
     "category": "Pasta",
     "quantity": 15,
     "price": 12.49,
-    "addedBy": {
-      "name": "Alice Smith",
-      "email": "alice@example.com"
-    },
+    "name": "Alice Smith",
+    "email": "alice@example.com",
     "origin": "Italy",
     "description": "Creamy pasta dish made with fettuccine noodles, grilled chicken strips, and Alfredo sauce. Garnished with parsley and served with garlic bread on the side."
   },
   {
-    "name": "Caesar Salad",
+    "foodName": "Caesar Salad",
     "image": "https://i.ibb.co/TWSZmNG/Caesar-Salad.jpg",
     "category": "Salad",
     "quantity": 25,
     "price": 8.99,
-    "addedBy": {
-      "name": "Emily Johnson",
-      "email": "emily@example.com"
-    },
+    "name": "Emily Johnson",
+    "email": "emily@example.com",
     "origin": "Mexico",
     "description": "Fresh salad made with crisp romaine lettuce, Caesar dressing, grated Parmesan cheese, and croutons. Topped with grilled chicken or shrimp for extra flavor."
   },
   {
-    "name": "Beef Tacos",
+    "foodName": "Beef Tacos",
     "image": "https://i.ibb.co/fQDbB0k/beef-tacos.jpg",
     "category": "Mexican",
     "quantity": 30,
     "price": 10.99,
-    "addedBy": {
-      "name": "Michael Brown",
-      "email": "michael@example.com"
-    },
+    "name": "Michael Brown",
+    "email": "michael@example.com",
     "origin": "United States",
     "description": "Authentic Mexican street tacos filled with seasoned ground beef, diced onions, cilantro, and a squeeze of lime. Served on warm corn tortillas with salsa on the side."
   },
   {
-    "name": "Grilled Chicken Sandwich",
+    "foodName": "Grilled Chicken Sandwich",
     "image": "https://i.ibb.co/9v5ynf9/grilled-chicken-sandwiches.jpg",
     "category": "Sandwich",
     "quantity": 18,
     "price": 7.49,
-    "addedBy": {
-      "name": "Sarah Miller",
-      "email": "sarah@example.com"
-    },
+    "name": "Sarah Miller",
+    "email": "sarah@example.com",
     "origin": "United States",
     "description": "Juicy grilled chicken breast served on a toasted bun with lettuce, tomato, red onion, and mayo. A classic sandwich option for a quick and satisfying meal."
   },
   {
-    "name": "Vegetable Pad Thai",
+    "foodName": "Vegetable Pad Thai",
     "image": "https://i.ibb.co/8NV1F4q/Vegetable-Pad-Thai.jpg",
     "category": "Thai",
     "quantity": 22,
     "price": 11.99,
-    "addedBy": {
-      "name": "David Wilson",
-      "email": "david@example.com"
-    },
+    "name": "David Wilson",
+    "email": "david@example.com",
     "origin": "Thailand",
     "description": "Vegetarian version of the classic Thai dish made with stir-fried rice noodles, tofu, bean sprouts, eggs, and peanuts. Tossed in a tangy tamarind sauce."
   },
   {
-    "name": "Cheese Ravioli",
+    "foodName": "Cheese Ravioli",
     "image": "https://i.ibb.co/ts5djtv/Cheese-Ravioli.jpg",
     "category": "Italian",
     "quantity": 12,
     "price": 10.99,
-    "addedBy": {
-      "name": "Olivia Clark",
-      "email": "olivia@example.com"
-    },
+    "name": "Olivia Clark",
+    "email": "olivia@example.com",
     "origin": "Italy",
     "description": "Delicious pasta dish filled with ricotta cheese and herbs, served with marinara sauce and sprinkled with Parmesan cheese. A comforting and flavorful meal option."
   },
   {
-    "name": "Sushi Roll Combo",
+    "foodName": "Sushi Roll Combo",
     "image": "https://i.ibb.co/bQ1KvFs/Sushi-Roll-Combo.jpg",
     "category": "Sushi",
     "quantity": 28,
     "price": 14.99,
-    "addedBy": {
-      "name": "Daniel Brown",
-      "email": "daniel@example.com"
-    },
+    "name": "Daniel Brown",
+    "email": "daniel@example.com",
     "origin": "Japan",
     "description": "Assorted sushi rolls including California, Dragon, and Spicy Tuna rolls. Served with pickled ginger, wasabi, and soy sauce for dipping."
   },
   {
-    "name": "Vegetarian Lasagna",
+    "foodName": "Vegetarian Lasagna",
     "image": "https://i.ibb.co/GC4gdcj/Vegetarian-Lasagna.jpg",
     "category": "Italian",
     "quantity": 10,
     "price": 13.49,
-    "addedBy": {
-      "name": "Sophia Davis",
-      "email": "sophia@example.com"
-    },
+    "name": "Sophia Davis",
+    "email": "sophia@example.com",
     "origin": "Italy",
     "description": "Layers of lasagna noodles, marinara sauce, sautéed vegetables, ricotta cheese, and mozzarella cheese. Baked until bubbly and golden brown for a hearty vegetarian meal."
   },
   {
-    "name": "Beef Stir-Fry",
+    "foodName": "Beef Stir-Fry",
     "image": "https://i.ibb.co/crrMRVZ/Beef-Stir-Fry.jpg",
     "category": "Asian",
     "quantity": 20,
     "price": 11.49,
-    "addedBy": {
-      "name": "Ethan Wilson",
-      "email": "ethan@example.com"
-    },
+    "name": "Ethan Wilson",
+    "email": "ethan@example.com",
     "origin": "China",
     "description": "Savory stir-fried beef strips with mixed vegetables including broccoli, bell peppers, carrots, and onions. Seasoned with soy sauce, garlic, and ginger for a flavorful dish."
   },
   {
-    "name": "Chicken Shawarma Wrap",
+    "foodName": "Chicken Shawarma Wrap",
     "image": "https://i.ibb.co/KKQ9BSp/Chicken-Shawarma-Wrap.jpg",
     "category": "Middle Eastern",
     "quantity": 15,
-    "price": 9.99,
-    "addedBy": {
-      "name": "Emma Johnson",
-      "email": "emma@example.com"
-    },
+    "price": 9.99,  
+    "name": "Emma Johnson",
+    "email": "emma@example.com",
     "origin": "Lebanon",
     "description": "Grilled chicken shawarma wrapped in warm pita bread with garlic sauce, lettuce, tomatoes, cucumbers, and pickles. A popular street food option in the Middle East."
   },
   {
-    "name": "Vegetable Curry",
+    "foodName": "Vegetable Curry",
     "image": "https://i.ibb.co/smScgfw/Vegetable-Curry.jpg",
     "category": "Indian",
     "quantity": 25,
-    "price": 10.99,
-    "addedBy": {
-      "name": "James Smith",
-      "email": "james@example.com"
-    },
+    "price": 10.99, 
+    "name": "James Smith",
+    "email": "james@example.com",
     "origin": "India",
     "description": "Spicy and aromatic Indian curry made with a medley of fresh vegetables including potatoes, carrots, peas, cauliflower, and bell peppers. Simmered in a flavorful blend of spices and served with steamed rice or naan bread."
   }

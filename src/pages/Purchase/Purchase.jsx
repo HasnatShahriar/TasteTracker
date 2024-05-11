@@ -17,6 +17,7 @@ const Purchase = () => {
   const { _id, name, image, category,
     quantity, price, addedBy, origin, description } = food;
 
+
   const handlePurchase = e => {
     e.preventDefault();
 
@@ -98,7 +99,7 @@ const Purchase = () => {
           <input type="text" name="buyerName" className="border rounded px-4 py-2" defaultValue={user?.displayName} />
 
           <label className="text-lg font-semibold">Buyer Email:</label>
-          <input type="email" name="buyerEmail" className="border rounded px-4 py-2" defaultValue={user?.email} />
+          <input type="email" name="buyerEmail" className="border rounded px-4 py-2" defaultValue={user?.email} required />
 
           <label className="text-lg font-semibold">Buying Date:</label>
           <input type="text" className="border rounded px-4 py-2" name="date" value={new Date().toLocaleString()} />

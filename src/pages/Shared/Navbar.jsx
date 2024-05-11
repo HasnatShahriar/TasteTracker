@@ -73,7 +73,7 @@ const Navbar = () => {
                     <Link to='/add-job' >My added food items</Link>
                   </li>
                   <li>
-                    <Link to='/my-posted-jobs'>Add a food item</Link>
+                    <Link to='/AddFood'>Add a food item</Link>
                   </li>
                   <li>
                     <Link to='/myOrder'>My ordered food items</Link>

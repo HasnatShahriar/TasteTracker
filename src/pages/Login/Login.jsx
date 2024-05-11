@@ -14,7 +14,7 @@ const Login = () => {
     try{
       await signInWithGoogle()
       toast.success('SignIn Successful')
-      navigate('/')
+      navigate(location?.state ? location?.state : '/')
 
     }catch (err){
       console.log(err);
@@ -23,22 +23,55 @@ const Login = () => {
 
   }
   // email password login
-  const handleSignIn = async(e) => {
+  // const handleSignIn = async(e) => {
+  //   e.preventDefault();
+  //   const form = e.target;
+  //   const email = form.email.value;
+  //   const password = form.password.value;
+  //   console.log(email,password);
+  //   try{
+  //     // user login
+  //     const result = await signIn(email,password)
+  //     console.log(result);
+  //     navigate('/')
+  //     toast.success('SignIn Successful')
+  //   }catch (err){
+  //     console.log(err);
+  //     toast.error(err?.message)
+  //   }
+  // }
+
+
+
+  const handleSignIn = e => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email,password);
-    try{
-      // user login
-      const result = await signIn(email,password)
-      console.log(result);
-      navigate('/')
-      toast.success('SignIn Successful')
-    }catch (err){
-      console.log(err);
-      toast.error(err?.message)
-    }
+    console.log(email, password);
+    signIn(email, password)
+      .then(result => {
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+
+        navigate(location?.state ? location?.state : '/')
+
+        // get access token
+        // const user = { email };
+  
+        // axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+        //   .then(res => {
+        //     console.log(res.data);
+        //     if(res.data.success){
+        //       navigate(location?.state ? location?.state : '/')
+        //     }
+        //   })
+
+      })
+      .catch(error => {
+        console.error(error);
+      })
+
   }
 
  
