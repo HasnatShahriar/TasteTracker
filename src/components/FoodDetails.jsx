@@ -19,7 +19,7 @@ const FoodDetails = () => {
         <p className="text-gray-700 text-base mb-2">Added By: {addedBy.name}</p>
       </div>
       <div className="px-6 py-4">
-        <Link to='/purchase'><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Purchase</button></Link>
+        <Link to={`/purchase/${_id}`}><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Purchase</button></Link>
       </div>
     </div>
   );

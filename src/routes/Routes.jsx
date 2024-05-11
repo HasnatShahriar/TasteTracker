@@ -8,6 +8,7 @@ import AllFood from "../pages/AllFood/AllFood";
 import FoodDetails from "../components/FoodDetails";
 import Purchase from "../pages/Purchase/Purchase";
 import PrivateRoute from "./PrivateRoute";
+import MyOrder from "../pages/MyOrder/MyOrder";
 
 
 const router = createBrowserRouter([
@@ -39,8 +40,14 @@ const router = createBrowserRouter([
         loader: ({params})=>fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`)
       },
       {
-        path: '/purchase',
+        path: '/purchase/:id',
         element: <PrivateRoute><Purchase/></PrivateRoute>,
+        loader: ({params})=>fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`)
+      },
+      {
+        path: '/myOrder',
+        element: <MyOrder/>,
+           
       }
     ]
   },
