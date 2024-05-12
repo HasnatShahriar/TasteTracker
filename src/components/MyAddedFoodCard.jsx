@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const MyAddedFoodCard = ({ food }) => {
   const { _id,foodName, image, category, quantity, price, origin, email, name, description } = food;
   return (
-    <div className="overflow-hidden bg-white rounded-lg shadow-lg border-2 dark:bg-gray-800">
+    <div className="overflow-hidden bg-white rounded-lg shadow-lg border-2 dark:bg-gray-800 my-6">
       <div className="px-4 py-2">
         <h1 className="text-xl font-bold text-gray-800 uppercase dark:text-white">{foodName}</h1>
         <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{description}</p>

@@ -12,6 +12,7 @@ import MyOrder from "../pages/MyOrder/MyOrder";
 import AddFood from "../pages/AddFood/AddFood";
 import MyAddedFood from "../pages/MyAddedFood/MyAddedFood";
 import Update from "../pages/Update/Update";
+import Gallery from "../pages/Gallery/Gallery";
 
 
 const router = createBrowserRouter([
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element: <Update/>
+      },
+      {
+        path: '/gallery',
+        element: <Gallery/>
       }
     ]
   },
