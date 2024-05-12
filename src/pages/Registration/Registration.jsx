@@ -1,14 +1,18 @@
 import { Link, useNavigate } from "react-router-dom"
 import img from '../../assets/register.jpg'
 import logo from '../../assets/logo.png'
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { AuthContext } from "../../provider/AuthProvider"
 import toast from "react-hot-toast"
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
 const Registration = () => {
 
   const { signInWithGoogle, createUser, updateUserProfile, user, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [registerError, setRegisterError] = useState('');
+  const [success, setSuccess] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   // email & password 
   const handleRegister = async (e) => {
@@ -19,6 +23,22 @@ const Registration = () => {
     const password = form.password.value;
     const photo = form.photo.value;
     console.log(name, email, password, photo);
+
+
+    // reset error & success
+    setRegisterError('');
+    setSuccess('');
+
+    if (password.length < 6) {
+      setRegisterError('Password must have at least 6 or more characters')
+      return
+    }
+    else if (!/^(?=.*[A-Z])(?=.*[a-z]).+$/.test(password)) {
+      setRegisterError('Password must have at least one uppercase and one lowercase letter')
+      return
+    }
+
+
     try {
       const result = await createUser(email, password)
       console.log(result);
@@ -26,7 +46,7 @@ const Registration = () => {
       setUser({ ...user, photoURL: photo, displayName: name })
       navigate('/')
       toast.success('Sign UP Successfully')
-    }catch(err){
+    } catch (err) {
       console.log(err);
       toast.error(err?.message)
     }
@@ -146,7 +166,7 @@ const Registration = () => {
               />
             </div>
 
-            <div className='mt-4'>
+            <div className='mt-4 relative'>
               <div className='flex justify-between'>
                 <label
                   className='block mb-2 text-sm font-medium text-gray-600 '
@@ -161,8 +181,13 @@ const Registration = () => {
                 autoComplete='current-password'
                 name='password'
                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
-                type='password'
+                type={showPassword ? 'text' : 'password'}
               />
+              <span className="absolute bottom-2 right-2 text-2xl" onClick={() => setShowPassword(!showPassword)}>
+                {
+                  showPassword ? <IoMdEyeOff /> : <IoMdEye />
+                }
+              </span>
             </div>
             <div className='mt-6'>
               <button
@@ -173,6 +198,19 @@ const Registration = () => {
               </button>
             </div>
           </form>
+
+
+
+          {
+            registerError && <p className="text-red-600 ml-8">{registerError}</p>
+          }
+          {
+            success && <p className="text-green-500 ml-8">{success}</p>
+          }
+
+
+
+
 
           <div className='flex items-center justify-between mt-4'>
             <span className='w-1/5 border-b  md:w-1/4'></span>

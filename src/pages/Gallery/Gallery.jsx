@@ -298,11 +298,12 @@
 
 
 // Import necessary modules
-import { useContext, useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import {  useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 import ImageCard from "../../components/ImageCard";
+import axios from "axios";
 
 const Gallery = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -311,8 +312,25 @@ const Gallery = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const allImages = useLoaderData();
-  console.log(allImages);
+  // const allImages = useLoaderData();
+  // console.log(allImages);
+
+
+
+
+  const [allImages, setAllImages] = useState([])
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios(`${import.meta.env.VITE_API_URL}/images`)
+      setAllImages(data)
+    }
+    getData()
+  }, [])
+
+
+
+
+
 
   const handleAddClick = () => {
     // Check if user is logged in, if not, redirect to login page

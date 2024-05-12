@@ -11,7 +11,7 @@ const ImageCard = ({ photo }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <figure>
-        <img src={image} alt="Food Image" className="w-full h-64"/>
+        <img src={image} alt="Food Image" className="w-full h-96"/>
       </figure>
       {isHovered && (
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
