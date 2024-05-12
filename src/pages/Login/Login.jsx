@@ -9,12 +9,17 @@ const Login = () => {
 
   const {signIn,signInWithGoogle} = useContext(AuthContext);
   const navigate = useNavigate()
+
+  const from = location.state || '/'
+
+
   // google login
   const handleGoogleSignIn = async()=>{
     try{
       await signInWithGoogle()
       toast.success('SignIn Successful')
-      navigate(location?.state ? location?.state : '/')
+      // navigate(location?.state ? location?.state : '/')
+      navigate(from,{replace: true})
 
     }catch (err){
       console.log(err);
@@ -54,7 +59,8 @@ const Login = () => {
         const loggedInUser = result.user;
         console.log(loggedInUser);
 
-        navigate(location?.state ? location?.state : '/')
+        // navigate(location?.state ? location?.state : '/')
+        navigate(from,{replace: true})
 
         // get access token
         // const user = { email };

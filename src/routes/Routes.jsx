@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/myOrder',
-        element: <MyOrder/>,        
+        element: <PrivateRoute><MyOrder/></PrivateRoute>,        
       },
       {
         path: '/AddFood',
@@ -66,7 +66,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/gallery',
-        element: <Gallery/>
+        element: <Gallery/>,
+        loader : ()=> fetch(`${import.meta.env.VITE_API_URL}/images`)
       }
     ]
   },

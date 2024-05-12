@@ -1,10 +1,18 @@
+import { useContext } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../provider/AuthProvider";
+import ImageCard from "../../components/ImageCard";
 
 const Gallery = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const { user } = useContext(AuthContext)
+
+  const allImages = useLoaderData()
+  console.log(allImages);
 
   const handleAddClick = () => {
     // Check if user is logged in, if not, redirect to login page
@@ -17,27 +25,38 @@ const Gallery = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Submit form data (feedback and image URL) to the server
+
+    const form = e.target;
+    const name = form.name.value;
+    const description = form.description.value;
+    const image = form.photo.value;
+    const newFeedback = { name, description, image }
+    console.log(newFeedback);
+
+
+    // send data to the server
+    fetch(`${import.meta.env.VITE_API_URL}/images`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newFeedback)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: 'Success!',
+            text: 'Food Added Successfully',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+        }
+      })
     // Close the modal after submission
     setModalOpen(false);
   };
-
-  // Dummy data for gallery images
-  const images = [
-    {
-      url: "https://example.com/image1.jpg",
-      alt: "Image 1",
-      user: "John Doe",
-      feedback: "Great experience!",
-    },
-    {
-      url: "https://example.com/image2.jpg",
-      alt: "Image 2",
-      user: "Jane Smith",
-      feedback: "Awesome food!",
-    },
-    // Add more images as needed
-  ];
 
   return (
     <div>
@@ -65,7 +84,9 @@ const Gallery = () => {
                 </label>
                 <input
                   type="text"
-                  value="John Doe" // User's name (read-only)
+                  // value="John Doe" // User's name (read-only)
+                  defaultValue={user?.displayName}
+                  name="name"
                   readOnly
                   className="border border-gray-400 p-2 w-full"
                 />
@@ -76,6 +97,7 @@ const Gallery = () => {
                 </label>
                 <textarea
                   value={feedback}
+                  name="description"
                   onChange={(e) => setFeedback(e.target.value)}
                   className="border border-gray-400 p-2 w-full"
                 />
@@ -87,6 +109,7 @@ const Gallery = () => {
                 <input
                   type="text"
                   value={imageUrl}
+                  name="photo"
                   onChange={(e) => setImageUrl(e.target.value)}
                   className="border border-gray-400 p-2 w-full"
                 />
@@ -112,19 +135,9 @@ const Gallery = () => {
 
       {/* Gallery Section */}
       <div className="grid grid-cols-3 gap-4 mt-8">
-        {/* Map through images and render each */}
-        {images.map((image, index) => (
-          <div key={index} className="relative">
-            <img src={image.url} alt={image.alt} className="w-full h-auto" />
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-              <div className="text-white text-center">
-                <p>{image.user}</p>
-                <p>{image.feedback}</p>
-              </div>
-            </div>
-          </div>
-        ))}
+        {
+          allImages.map((photo, index) => <ImageCard key={index} photo={photo} />)
+        }
       </div>
     </div>
   );
