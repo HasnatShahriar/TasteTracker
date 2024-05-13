@@ -1,18 +1,25 @@
 import { Link, useNavigate } from "react-router-dom"
 import img from '../../assets/register.jpg'
 import logo from '../../assets/logo.png'
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../../provider/AuthProvider"
 import toast from "react-hot-toast"
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { Helmet } from "react-helmet-async"
 
 const Registration = () => {
 
-  const { signInWithGoogle, createUser, updateUserProfile, user, setUser } = useContext(AuthContext);
+  const { signInWithGoogle, createUser, updateUserProfile, user, setUser,loading } = useContext(AuthContext);
   const navigate = useNavigate();
   const [registerError, setRegisterError] = useState('');
   const [success, setSuccess] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(()=>{
+    if(user){
+      navigate('/')
+    }
+  },[user,navigate])
 
   // email & password 
   const handleRegister = async (e) => {
@@ -66,9 +73,13 @@ const Registration = () => {
 
   }
 
+  if(user || loading) return
 
   return (
     <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12'>
+       <Helmet>
+        <title>TasteTracker | Register</title>
+      </Helmet>
       <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
         <div className='w-full px-6 py-8 md:px-8 lg:w-1/2'>
           <div className='flex justify-center mx-auto'>

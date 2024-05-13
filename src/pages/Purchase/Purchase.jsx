@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useLoaderData } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 
@@ -15,17 +16,20 @@ const Purchase = () => {
   console.log(food);
 
   const { _id, foodName, image, category,
-    quantity, price, addedBy, origin, description } = food;
+    quantity, price, addBy, origin, description } = food;
 
 
   const handlePurchase = e => {
     e.preventDefault();
+    if (user?.email === addBy?.email) return toast.error('Action Not Permitted')
 
 
     const form = e.target;
     const name = form.name.value
-    const price = form.price.value
-    const quantity = form.quantity.value
+    const price = parseFloat(form.price.value)
+    const purchaseQuantity = parseInt(form.quantity.value)
+    if (purchaseQuantity > quantity) return toast.error('Can not buy because Foods quantity is less !!!')
+    if(quantity === 0) return toast.error('Item is not available')
     const buyerName = form.buyerName.value
     const buyerEmail = form.buyerEmail.value
     const date = form.date.value
@@ -33,13 +37,12 @@ const Purchase = () => {
     const order = {
       name,
       price,
-      quantity,
+      purchaseQuantity,
       buyerName,
       buyerEmail,
       date,
       image,
       category,
-      addedBy,
       origin,
       description,
     }
@@ -86,14 +89,14 @@ const Purchase = () => {
       <form onSubmit={handlePurchase}>
         <div className="flex flex-col space-y-4">
           <label className="text-lg font-semibold">Food Name:</label>
-          <input type="text" name="name" className="border rounded px-4 py-2"defaultValue={foodName}/>
+          <input type="text" name="name" className="border rounded px-4 py-2" defaultValue={foodName} />
 
           <label className="text-lg font-semibold">Price:</label>
-          <input type="text" name="price" className="border rounded px-4 py-2" defaultValue={price}/>
+          <input type="text" name="price" className="border rounded px-4 py-2" defaultValue={price} />
 
           <label className="text-lg font-semibold">Quantity:</label>
 
-          <input type="number" name="quantity" className="border rounded px-4 py-2" defaultValue={quantity}/>
+          <input type="number" name="quantity" className="border rounded px-4 py-2" defaultValue={quantity} />
 
           <label className="text-lg font-semibold">Buyer Name:</label>
           <input type="text" name="buyerName" className="border rounded px-4 py-2" defaultValue={user?.displayName} />

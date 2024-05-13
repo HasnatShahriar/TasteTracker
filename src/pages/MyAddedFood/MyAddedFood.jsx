@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import MyAddedFoodCard from '../../components/MyAddedFoodCard';
+import { Helmet } from 'react-helmet-async';
 
 const MyAddedFood = () => {
 
@@ -19,6 +20,9 @@ const MyAddedFood = () => {
 
   return (
     <div>
+       <Helmet>
+        <title>TasteTracker | My Added Food Items</title>
+      </Helmet>
       {
         foods.map(food => <MyAddedFoodCard key={food._id} food={food}/>)
       }

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import MyOrderRow from "../../components/MyOrderRow";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const MyOrder = () => {
@@ -10,7 +11,7 @@ const MyOrder = () => {
 
   const [foods, setFoods] = useState([])
 
-  const url = `http://localhost:5000/purchase/${user?.email}`
+  const url = `${import.meta.env.VITE_API_URL}/purchase/${user?.email}`
 
   useEffect(() => {
     fetch(url)
@@ -56,6 +57,9 @@ const MyOrder = () => {
 
   return (
     <div>
+       <Helmet>
+        <title>TasteTracker | My Purchase</title>
+      </Helmet>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

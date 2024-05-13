@@ -304,6 +304,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 import ImageCard from "../../components/ImageCard";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const Gallery = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -377,6 +378,9 @@ const Gallery = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>TasteTracker | Gallery</title>
+      </Helmet>
       <h1 className="text-4xl font-bold text-center bg-gray-200 p-4">Gallery</h1>
 
       <div className="flex justify-center mt-8">

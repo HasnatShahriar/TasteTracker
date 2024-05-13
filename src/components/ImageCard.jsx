@@ -6,7 +6,7 @@ const ImageCard = ({ photo }) => {
 
   return (
     <div
-      className="relative w-96 glass overflow-hidden rounded-lg transition-transform transform-gpu hover:scale-105"
+      className="relative w-72 glass overflow-hidden rounded-lg transition-transform transform-gpu hover:scale-105"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

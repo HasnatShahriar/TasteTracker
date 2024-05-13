@@ -38,6 +38,7 @@
 import  { useState } from "react";
 import { useLoaderData } from "react-router-dom"; // Importing useLoaderData
 import FoodCard from "../../components/FoodCard";
+import { Helmet } from "react-helmet-async";
 
 const AllFood = () => {
   const allFoods = useLoaderData(); // Using useLoaderData to fetch data
@@ -61,6 +62,9 @@ const AllFood = () => {
 
   return (
     <div>
+       <Helmet>
+        <title>TasteTracker | All Food</title>
+      </Helmet>
       <div className="flex items-center my-4">
         <input
           type="text"
