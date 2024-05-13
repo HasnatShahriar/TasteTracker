@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Banner from "../../components/Banner";
+import TopSelling from "../../components/TopSelling";
 
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
         <title>TasteTracker | Home</title>
       </Helmet>
       <Banner/>
+      <TopSelling/>
     </div>
   );
 };

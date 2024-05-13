@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../provider/AuthProvider";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../provider/AuthProvider";
+import './Navbar.css'
 
 
 
@@ -11,11 +12,11 @@ const Navbar = () => {
 
   const [theme, setTheme] = useState('light');
 
-  const NavItems = <>
-    <li><Link to='/'>Home</Link></li>
-    <li><Link to='/allFoods'>All Foods</Link></li>
-    <li><Link to='/gallery'>Gallery</Link></li>
-  </>
+  const NavItems = <div id="sidebar" className="flex flex-col md:flex-row lg:flex-row gap-2">
+    <li><NavLink to='/'  activeClassName="text-green-500 font-bold border-green-500 border-2 py-2">Home</NavLink></li>
+    <li><NavLink to='/allFoods'>All Foods</NavLink></li>
+    <li><NavLink to='/gallery'>Gallery</NavLink></li>
+  </div>
 
 
 
@@ -42,7 +43,7 @@ const handleToggle = (e) => {
   }
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-blue-200 rounded-xl mb-10 ">
       <div className="navbar-start">
         <div className="dropdown z-50">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -52,7 +53,7 @@ const handleToggle = (e) => {
             {NavItems}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl text-blue-600 font-extrabold">TasteTracker</a>
+        <Link to='/'><a className="btn btn-ghost text-xl text-blue-600 font-extrabold">TasteTracker</a></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">

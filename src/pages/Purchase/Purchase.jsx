@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 
@@ -14,14 +14,15 @@ const Purchase = () => {
   const { user } = useContext(AuthContext)
   const food = useLoaderData();
   console.log(food);
+  const navigate = useNavigate();
 
   const { _id, foodName, image, category,
-    quantity, price, addBy, origin, description } = food;
+    quantity, price, email, origin, description } = food;
 
 
   const handlePurchase = e => {
     e.preventDefault();
-    if (user?.email === addBy?.email) return toast.error('Action Not Permitted')
+    if (user?.email === email) return toast.error('Action Not Permitted')
 
 
     const form = e.target;
@@ -59,6 +60,7 @@ const Purchase = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data);
+        navigate('/myOrder')
 
         if (data.insertedId) {
           Swal.fire({

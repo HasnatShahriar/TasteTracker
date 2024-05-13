@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
@@ -9,6 +9,7 @@ const Update = () => {
 
 
   const {user} = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const { id } = useParams();
   console.log(id);
@@ -55,6 +56,7 @@ const Update = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data);
+        navigate('/addedFood')
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: 'Success!',

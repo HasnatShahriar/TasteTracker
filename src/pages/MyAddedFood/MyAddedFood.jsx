@@ -7,6 +7,7 @@ const MyAddedFood = () => {
 
   const {user} = useContext(AuthContext);
   const[foods,setFoods] = useState([]);
+  console.log(user.email);
 
   const url = `${import.meta.env.VITE_API_URL}/foods/${user?.email}`;
   useEffect (()=>{
@@ -17,6 +18,7 @@ const MyAddedFood = () => {
       setFoods(data)
     })
   },[url])
+
 
   return (
     <div>

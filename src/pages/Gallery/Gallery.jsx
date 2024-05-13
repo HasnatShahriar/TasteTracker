@@ -305,6 +305,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import ImageCard from "../../components/ImageCard";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
+import image from '../../assets/gallery_bg.jpg'
 
 const Gallery = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -381,7 +382,15 @@ const Gallery = () => {
       <Helmet>
         <title>TasteTracker | Gallery</title>
       </Helmet>
-      <h1 className="text-4xl font-bold text-center bg-gray-200 p-4">Gallery</h1>
+      <section className="relative">
+        {/* Banner with background image */}
+        <div
+          className="bg-cover bg-center h-80 flex items-center justify-center rounded-md"
+          style={{ backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url(${image})` }}
+        >
+          <h1 className="text-green-500 text-2xl font-bold">Gallery</h1>
+        </div>
+      </section>
 
       <div className="flex justify-center mt-8">
         {/* Add Button */}

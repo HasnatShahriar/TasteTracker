@@ -35,10 +35,12 @@
 /////////////////////////////////////////////////////////////
 
 
-import  { useState } from "react";
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom"; // Importing useLoaderData
 import FoodCard from "../../components/FoodCard";
 import { Helmet } from "react-helmet-async";
+
+import image from '../../assets/all_food_bg.jpg'
 
 const AllFood = () => {
   const allFoods = useLoaderData(); // Using useLoaderData to fetch data
@@ -62,7 +64,7 @@ const AllFood = () => {
 
   return (
     <div>
-       <Helmet>
+      <Helmet>
         <title>TasteTracker | All Food</title>
       </Helmet>
       <div className="flex items-center my-4">
@@ -77,6 +79,16 @@ const AllFood = () => {
           Search
         </button>
       </div>
+      <section className="relative">
+        {/* Banner with background image */}
+        <div
+          className="bg-cover bg-center h-80 flex items-center justify-center rounded-md"
+          style={{ backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url(${image})` }}
+        >
+          <h1 className="text-green-500 text-2xl font-bold">All Food</h1>
+        </div>
+      </section>
+
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 my-6">
         {searchResults.length > 0 ? (
           searchResults.map((food) => <FoodCard key={food._id} food={food} />)
