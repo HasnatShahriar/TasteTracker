@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -9,7 +10,8 @@ import { Helmet } from "react-helmet-async";
 const AddFood = () => {
 
 
-  const { user } = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleAddFood = e => {
     e.preventDefault();
@@ -50,6 +52,7 @@ const AddFood = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data);
+        navigate('/addedFood')
         if (data.insertedId) {
           Swal.fire({
             title: 'Success!',

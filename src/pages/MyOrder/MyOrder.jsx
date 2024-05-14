@@ -3,72 +3,67 @@ import { AuthContext } from "../../provider/AuthProvider";
 import MyOrderRow from "../../components/MyOrderRow";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 
-const MyOrder = () => {
+  const MyOrder = () => {
 
   const { user } = useContext(AuthContext);
-
   const [foods, setFoods] = useState([])
 
   const url = `${import.meta.env.VITE_API_URL}/purchase/${user?.email}`
-
   useEffect(() => {
-    fetch(url)
-      .then(res => res.json())
+    axios(url)
       .then(data => {
-        console.log(data);
-        setFoods(data)
+        console.log(data.data);
+        setFoods(data.data)
       })
   }, [url])
 
 
   const handleDelete = id => {
-      Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          fetch(`${import.meta.env.VITE_API_URL}/purchase/${id}`, {
-            method: 'DELETE'
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`${import.meta.env.VITE_API_URL}/purchase/${id}`, {
+          method: 'DELETE'
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+              const remaining = foods.filter(food => food._id !== id);
+              setFoods(remaining)
+            }
           })
-            .then(res => res.json())
-            .then(data => {
-              console.log(data);
-              if (data.deletedCount > 0) {
-                Swal.fire({
-                  title: "Deleted!",
-                  text: "Your file has been deleted.",
-                  icon: "success"
-                });
-                const remaining = foods.filter(food => food._id !== id);
-                setFoods(remaining)
-              }
-            })
-        }
-      });
+      }
+    });
   }
 
 
   return (
     <div>
-       <Helmet>
+      <Helmet>
         <title>TasteTracker | My Purchase</title>
       </Helmet>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
-          <thead>
+          <thead className="font-bold text-lg">
             <tr>
               <th>
-                {/* <label>
-            <input type="checkbox" className="checkbox" />
-          </label> */}
                 Serial
               </th>
               <th>Food Image</th>

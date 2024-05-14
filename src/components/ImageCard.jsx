@@ -6,12 +6,12 @@ const ImageCard = ({ photo }) => {
 
   return (
     <div
-      className="relative w-72 glass overflow-hidden rounded-lg transition-transform transform-gpu hover:scale-105"
+      className="relative  glass overflow-hidden rounded-lg transition-transform transform-gpu hover:scale-105"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <figure>
-        <img src={image} alt="Food Image" className="w-full h-96"/>
+        <img src={image} alt="Food Image" className="w-full h-64"/>
       </figure>
       {isHovered && (
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">

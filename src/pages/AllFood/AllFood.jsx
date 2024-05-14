@@ -1,40 +1,3 @@
-// import { useState } from "react";
-// import { useLoaderData } from "react-router-dom";
-// import FoodCard from "../../components/FoodCard";
-
-// const AllFood = () => {
-//   const allFoods = useLoaderData();
-//   const [searchQuery, setSearchQuery] = useState("");
-
-//   // Filter food items based on search query
-//   const filteredFoods = allFoods.filter(food =>
-//     food.foodName.toLowerCase().includes(searchQuery.toLowerCase())
-//   );
-
-//   return (
-//     <div>
-//       <input
-//         type="text"
-//         value={searchQuery}
-//         onChange={(e) => setSearchQuery(e.target.value)}
-//         placeholder="Search food by name..." className="border-2 p-2"
-//       />
-
-//       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 my-6">
-
-//         {filteredFoods.map((food) => (
-//           <FoodCard key={food._id} food={food} />
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AllFood;
-
-/////////////////////////////////////////////////////////////
-
-
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom"; // Importing useLoaderData
 import FoodCard from "../../components/FoodCard";
@@ -67,6 +30,19 @@ const AllFood = () => {
       <Helmet>
         <title>TasteTracker | All Food</title>
       </Helmet>
+      <section className="relative">
+        {/* Banner with background image */}
+        <div
+          className="bg-cover bg-center h-80 flex items-center justify-center rounded-md"
+          style={{ backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url(${image})` }}
+        >
+          <h1 className="text-green-500 text-2xl font-bold">All Foods</h1>
+        </div>
+      </section>
+      <section>
+        <h2 className="text-3xl font-bold mt-16 mb-4 text-center">All Categories Foods</h2>
+        <p className="w-2/3 text-center mx-auto mb-8 font-semibold">Users can explore a comprehensive array of culinary delights, ranging from delectable dishes to exotic ingredients, providing a diverse and immersive gastronomic experience</p>
+      </section>
       <div className="flex items-center my-4">
         <input
           type="text"
@@ -79,16 +55,6 @@ const AllFood = () => {
           Search
         </button>
       </div>
-      <section className="relative">
-        {/* Banner with background image */}
-        <div
-          className="bg-cover bg-center h-80 flex items-center justify-center rounded-md"
-          style={{ backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url(${image})` }}
-        >
-          <h1 className="text-green-500 text-2xl font-bold">All Food</h1>
-        </div>
-      </section>
-
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 my-6">
         {searchResults.length > 0 ? (
           searchResults.map((food) => <FoodCard key={food._id} food={food} />)

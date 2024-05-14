@@ -6,10 +6,11 @@ import { AuthContext } from '../../provider/AuthProvider';
 import toast from 'react-hot-toast';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 import { Helmet } from 'react-helmet-async';
+import axios from 'axios';
 
 const Login = () => {
 
-  const { signIn, signInWithGoogle,user,loading } = useContext(AuthContext);
+  const { signIn, signInWithGoogle, user, loading } = useContext(AuthContext);
   const location = useLocation()
   const navigate = useNavigate()
   const [loginError, setLoginError] = useState('');
@@ -17,11 +18,11 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
 
-  useEffect(()=>{
-    if(user){
+  useEffect(() => {
+    if (user) {
       navigate('/')
     }
-  },[user,navigate])
+  }, [user, navigate])
 
   // google login
   const handleGoogleSignIn = async () => {
@@ -66,11 +67,11 @@ const Login = () => {
   }
 
 
-  if(user || loading) return
+  if (user || loading) return
 
   return (
     <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12'>
-       <Helmet>
+      <Helmet>
         <title>TasteTracker | Login</title>
       </Helmet>
       <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
@@ -83,8 +84,8 @@ const Login = () => {
             />
           </div>
 
-          <p className='mt-3 text-xl text-center text-gray-600 '>
-            Get Your Free Account Now.
+          <p className='mt-3 text-xl text-center font-bold text-gray-600 '>
+           Please Login
           </p>
 
           <div onClick={handleGoogleSignIn} className='flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 '>
@@ -114,7 +115,7 @@ const Login = () => {
             </span>
           </div>
 
-          <div className='flex items-center justify-between mt-4'>
+          {/* <div className='flex items-center justify-between mt-4'>
             <span className='w-1/5 border-b  lg:w-1/4'></span>
 
             <div className='text-xs text-center text-gray-500 uppercase  hover:underline'>
@@ -122,7 +123,7 @@ const Login = () => {
             </div>
 
             <span className='w-1/5 border-b dark:border-gray-400 lg:w-1/4'></span>
-          </div>
+          </div> */}
           <form onSubmit={handleSignIn}>
 
             <div className='mt-4'>

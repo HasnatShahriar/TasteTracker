@@ -13,7 +13,8 @@ import AddFood from "../pages/AddFood/AddFood";
 import MyAddedFood from "../pages/MyAddedFood/MyAddedFood";
 import Update from "../pages/Update/Update";
 import Gallery from "../pages/Gallery/Gallery";
-import TopSelling from "../components/TopSelling";
+
+
 
 
 const router = createBrowserRouter([
@@ -24,7 +25,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home/>
+        element: <Home/>,
+        // loader : ()=> fetch(`${import.meta.env.VITE_API_URL}/purchase`)
       },
       {
         path: '/login',
@@ -68,14 +70,8 @@ const router = createBrowserRouter([
       {
         path: '/gallery',
         element: <Gallery/>,
-        // loader : ()=> fetch(`${import.meta.env.VITE_API_URL}/images`)
+  
       },
-      {
-        path: '/topSelling',
-        element: <TopSelling/>,
-        loader : ()=> fetch(`${import.meta.env.VITE_API_URL}/foods`)
-      }
-
     ]
   },
 ]);

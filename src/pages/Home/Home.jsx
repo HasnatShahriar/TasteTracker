@@ -1,16 +1,22 @@
 import { Helmet } from "react-helmet-async";
 import Banner from "../../components/Banner";
 import TopSelling from "../../components/TopSelling";
+import NewsletterSection from "../../components/NewsletterSection";
+
+
+
 
 
 const Home = () => {
+ 
   return (
-    <div>
+    <div>    
       <Helmet>
         <title>TasteTracker | Home</title>
       </Helmet>
       <Banner/>
-      <TopSelling/>
+     <TopSelling/>
+     <NewsletterSection/>
     </div>
   );
 };

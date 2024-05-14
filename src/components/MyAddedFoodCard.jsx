@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 
 const MyAddedFoodCard = ({ food }) => {
-  const { _id,foodName, image, category, quantity, price, origin, email, name, description } = food;
+  const { _id, foodName, image, price, description } = food;
   return (
-    <div className="overflow-hidden bg-white rounded-lg shadow-lg border-2 dark:bg-gray-800 my-6">
-      <div className="px-4 py-2">
-        <h1 className="text-xl font-bold text-gray-800 uppercase dark:text-white">{foodName}</h1>
-        <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{description}</p>
+    <div data-aos="zoom-in" data-aos-duration="1000" className="flex flex-col md:flex-row justify-between items-center gap-6 overflow-hidden shadow-lg border-2 border-green-600 rounded-xl my-6">
+      <div>
+        <img data-aos="zoom-in" data-aos-duration="1000" src={image} alt='food image' className="w-96 h-60" />
       </div>
-
-      <img className="object-cover w-full h-[400px] mt-2" src={image} alt="Food Pic" />
-
-      <div className="flex items-center justify-between px-4 py-2 bg-gray-900">
-        <h1 className="text-lg font-bold text-white">${price}</h1>
-        <Link to={`/update/${_id}`}><button className="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none">Update</button></Link>
+      <div className="px-6 py-4 flex-1">
+        <div className="font-bold text-xl mb-2">{foodName}</div>
+        <p className="text-gray-700 text-base mb-2 font-bold">Description: <span className="text-gray-500">{description}</span></p>
+        <p className="text-gray-700 text-base mb-2 font-bold">Price: <span className="text-green-600">${price}</span></p>
+        <div className="px-6 py-4">
+          <Link to={`/update/${_id}`}><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Update</button></Link>
+        </div>
       </div>
     </div>
   );
