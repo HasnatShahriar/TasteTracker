@@ -104,7 +104,7 @@ const handleToggle = (e) => {
               </div>
               <div>
                 <div className=''>
-                  <button onClick={handleLogOut} className='btn btn-outline'>Logout</button>
+                  <button onClick={handleLogOut} className='btn btn-sm bg-gray-200'>Logout</button>
                 </div>
               </div>
             </div>
@@ -125,3 +125,4 @@ const handleToggle = (e) => {
 };
 
 export default Navbar;
+

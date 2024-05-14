@@ -15,7 +15,7 @@ const MyAddedFoodCard = ({ food }) => {
         <p className="text-gray-700 text-base mb-2 font-bold">Description: <span className="text-gray-500">{description}</span></p>
         <p className="text-gray-700 text-base mb-2 font-bold">Price: <span className="text-green-600">${price}</span></p>
         <div className="px-6 py-4">
-          <Link to={`/update/${_id}`}><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Update</button></Link>
+          <Link to={`/update/${_id}`}><button className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">Update</button></Link>
         </div>
       </div>
     </div>

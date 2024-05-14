@@ -18,7 +18,7 @@ const FoodCard = ({ food }) => {
         <p className="text-gray-700 mb-2"><span className="font-semibold">Quantity:</span> <span className="text-green-600">{quantity}</span></p>
         <div className="flex justify-center">
           <Link to={`/food/${_id}`}>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md block focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2">
+            <button className="bg-green-600 hover:bg-green-700 text-white  font-semibold py-2 px-4 rounded-md block focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2">
               View Details
             </button>
           </Link>

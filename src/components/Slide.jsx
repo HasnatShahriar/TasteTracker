@@ -16,7 +16,7 @@ const Slide = ({ image, text }) => {
           </h1>
           <p className="text-white ">A restaurant is a place where you can eat a meal and pay for it. In restaurants, your food is usually <br /> served to you at your table by a waiter or waitress.</p>
           <br />
-          <Link to='/allFoods' className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500'>
+          <Link to='/allFoods' className='w-full px-5 py-4 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-green-600 rounded-md lg:w-auto hover:bg-green-700 focus:outline-none focus:bg-gray-500'>
             Go to All Foods Page
           </Link>
         </div>

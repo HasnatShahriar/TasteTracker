@@ -224,7 +224,7 @@ const Purchase = () => {
         <input type="text" name="buyerName" className="border rounded px-4 py-2 w-full" defaultValue={user?.displayName} />
         <label className="text-lg font-semibold">Buyer Email:</label>
         <input type="email" name="buyerEmail" className="border rounded px-4 py-2 w-full" defaultValue={user?.email} required />
-        <input type="submit" className="btn btn-info w-full" value="Purchase" />
+        <input type="submit" className="bg-green-600 hover:bg-green-700 text-white text-xl btn w-full" value="Purchase" />
       </form>
     </div>
   );

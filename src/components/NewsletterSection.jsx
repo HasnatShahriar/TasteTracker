@@ -11,7 +11,7 @@ const NewsletterSection = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-green-900 via-green-700 to-black py-12 lg:py-16 my-10">
+    <div className="bg-gradient-to-r from-green-900 via-green-700 to-black py-12 lg:py-16 mt-16 mb-10 rounded-lg">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-between bg-white bg-opacity-90 rounded-lg shadow-xl p-6 lg:p-8">
           <div className="lg:w-1/2 mb-6 lg:mb-0">

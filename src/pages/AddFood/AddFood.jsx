@@ -71,7 +71,7 @@ const AddFood = () => {
       <Helmet>
         <title>TasteTracker | Add A Food Item</title>
       </Helmet>
-      <h2 className="text-3xl font-extrabold text-center mb-10 text-blue-600">Add Food Item</h2>
+      <h2 className="text-3xl font-extrabold text-center mb-10 text-green-600">Add Food Item</h2>
       <form onSubmit={handleAddFood}>
         {/* form food name & image */}
         <div className="md:flex ">
@@ -159,7 +159,7 @@ const AddFood = () => {
             <input type="text" name="description" placeholder="Short Description" className="input input-bordered w-full" />
           </label>
         </div>
-        <input type="submit" value="Add Food" className="btn btn-block bg-blue-600 text-white mt-16" />
+        <input type="submit" value="Add Food" className="btn btn-block bg-green-600 hover:bg-green-700 text-white text-xl mt-16" />
       </form>
     </div>
   );
