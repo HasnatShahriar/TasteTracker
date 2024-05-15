@@ -5,9 +5,6 @@ import NewsletterSection from "../../components/NewsletterSection";
 import About from "../../components/About";
 
 
-
-
-
 const Home = () => {
  
   return (

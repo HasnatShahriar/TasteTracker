@@ -7,8 +7,6 @@ const TopSelling = () => {
 
 
   const [foods, setFoods] = useState([])
-
-  
   const url = `${import.meta.env.VITE_API_URL}/purchases`
 
   useEffect(() => {
@@ -19,7 +17,6 @@ const TopSelling = () => {
         setFoods(data)
       })
   }, [url])
-
 
 
   return (

@@ -6,14 +6,14 @@ import { Helmet } from "react-helmet-async";
 import axios from "axios";
 
 
-  const MyOrder = () => {
+const MyOrder = () => {
 
   const { user } = useContext(AuthContext);
   const [foods, setFoods] = useState([])
 
   const url = `${import.meta.env.VITE_API_URL}/purchase/${user?.email}`
   useEffect(() => {
-    axios(url)
+    axios(url, { withCredentials: true })
       .then(data => {
         console.log(data.data);
         setFoods(data.data)
@@ -41,7 +41,7 @@ import axios from "axios";
             if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
-                text: "Your file has been deleted.",
+                text: "Your Food Item has been deleted.",
                 icon: "success"
               });
               const remaining = foods.filter(food => food._id !== id);

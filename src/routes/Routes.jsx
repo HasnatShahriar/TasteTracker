@@ -20,57 +20,56 @@ import Gallery from "../pages/Gallery/Gallery";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main/>,
-    errorElement: <ErrorPage/>,
+    element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
-        element: <Home/>,
-        // loader : ()=> fetch(`${import.meta.env.VITE_API_URL}/purchase`)
+        element: <Home />,
       },
       {
         path: '/login',
-        element: <Login/>
+        element: <Login />
       },
       {
         path: '/register',
-        element: <Registration/>
+        element: <Registration />
       },
       {
         path: '/allFoods',
-        element: <AllFood/>,
-        loader : ()=> fetch(`${import.meta.env.VITE_API_URL}/foods`)
+        element: <AllFood />,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/foods`)
+
       },
       {
         path: '/food/:id',
-        element: <FoodDetails/>,
-        loader: ({params})=>fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`)
+        element: <FoodDetails />,
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`)
       },
       {
         path: '/purchase/:id',
-        element: <PrivateRoute><Purchase/></PrivateRoute>,
-        loader: ({params})=>fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`)
+        element: <PrivateRoute><Purchase /></PrivateRoute>,
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`)
       },
       {
         path: '/myOrder',
-        element: <PrivateRoute><MyOrder/></PrivateRoute>,        
+        element: <PrivateRoute><MyOrder /></PrivateRoute>,
       },
       {
         path: '/AddFood',
-        element: <AddFood/>
+        element: <AddFood />
       },
       {
         path: '/addedFood',
-        element: <MyAddedFood/>,     
+        element: <MyAddedFood />,
       },
       {
         path: '/update/:id',
-        element: <Update/>
+        element: <Update />
       },
       {
         path: '/gallery',
-        element: <Gallery/>,
-  
+        element: <Gallery />,
       },
     ]
   },

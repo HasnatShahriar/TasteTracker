@@ -18,7 +18,7 @@ TasteTracker is your ultimate destination for exploring culinary delights, disco
 ## Selected Category
 
 **Cuisine Focus**: TasteTracker offers an extensive selection of restaurants categorized by cuisine, including Mexican, Italian, Indian, Bangladeshi, Thai, Chinese, Japanese, French, and more, allowing you to explore and indulge in your preferred culinary delights.
-- **Dining Styles**: Whether you're craving fast food, casual dining, or fine dining experiences, TasteTracker has you covered.
+**Dining Styles**: Whether you're craving fast food, casual dining, or fine dining experiences, TasteTracker has you covered.
 
 
 

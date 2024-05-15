@@ -6,7 +6,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import toast from 'react-hot-toast';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 import { Helmet } from 'react-helmet-async';
-import axios from 'axios';
+
 
 const Login = () => {
 

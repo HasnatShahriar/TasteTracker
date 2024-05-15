@@ -25,7 +25,6 @@ const Gallery = () => {
 
 
   const handleAddClick = () => {
-    // Check if user is logged in, if not, redirect to login page
     if (!user) {
       navigate("/login");
       return;
@@ -63,7 +62,7 @@ const Gallery = () => {
           });
         }
       });
-    // Close the modal after submission
+  
     setModalOpen(false);
   };
 
