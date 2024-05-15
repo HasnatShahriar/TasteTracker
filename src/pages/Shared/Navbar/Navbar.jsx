@@ -53,7 +53,7 @@ const handleToggle = (e) => {
             {NavItems}
           </ul>
         </div>
-        <Link to='/'><a className="btn btn-ghost text-xl text-blue-600 font-extrabold">TasteTracker</a></Link>
+        <Link to='/'><a className="btn btn-ghost text-sm md:text-xl text-blue-600 font-extrabold">TasteTracker</a></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
