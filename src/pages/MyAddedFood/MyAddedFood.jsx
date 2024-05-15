@@ -6,6 +6,7 @@ import axios from 'axios';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Typewriter } from 'react-simple-typewriter';
+import Swal from 'sweetalert2';
 AOS.init();
 
 const MyAddedFood = () => {
@@ -22,6 +23,39 @@ const MyAddedFood = () => {
         setFoods(res.data)
       })
   }, [url])
+
+
+
+  const handleDelete = id => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`${import.meta.env.VITE_API_URL}/foods/${id}`, {
+          method: 'DELETE'
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your Food Item has been deleted.",
+                icon: "success"
+              });
+              const remaining = foods.filter(food => food._id !== id);
+              setFoods(remaining)
+            }
+          })
+      }
+    });
+  }
 
 
   return (
@@ -47,7 +81,7 @@ const MyAddedFood = () => {
         <p className="w-2/3 text-center mx-auto mb-8 font-semibold">From savory burgers to exotic sushi rolls, the top-selling restaurant favorites cater to diverse tastes and are enjoyed in eateries spanning from cozy cafes to fine dining establishments</p>
       </section>
       {
-        foods.map(food => <MyAddedFoodCard key={food._id} food={food} />)
+        foods.map(food => <MyAddedFoodCard key={food._id} food={food} handleDelete={handleDelete}/>)
       }
     </div>
   );

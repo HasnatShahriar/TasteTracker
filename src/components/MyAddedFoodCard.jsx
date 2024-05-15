@@ -3,7 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 AOS.init();
 
-const MyAddedFoodCard = ({ food }) => {
+const MyAddedFoodCard = ({ food,handleDelete }) => {
   const { _id, foodName, image, price, description } = food;
   return (
     <div data-aos="zoom-in" data-aos-duration="1000" className="flex flex-col md:flex-row justify-between items-center gap-6 overflow-hidden shadow-lg border-2 border-green-600 rounded-xl my-6">
@@ -16,6 +16,7 @@ const MyAddedFoodCard = ({ food }) => {
         <p className="text-gray-700 text-base mb-2 font-bold">Price: <span className="text-green-600">${price}</span></p>
         <div className="px-6 py-4">
           <Link to={`/update/${_id}`}><button className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">Update</button></Link>
+          <button onClick={()=>handleDelete(_id)} className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg ml-4">Delete</button>
         </div>
       </div>
     </div>
