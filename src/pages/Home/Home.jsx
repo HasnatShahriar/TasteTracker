@@ -4,6 +4,7 @@ import TopSelling from "../../components/TopSelling";
 import NewsletterSection from "../../components/NewsletterSection";
 import About from "../../components/About";
 import { Link } from "react-router-dom";
+import Maps from "../../components/Maps";
 
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
       </div>
       <About />
       <NewsletterSection />
+      <Maps/>
     </div>
   );
 };

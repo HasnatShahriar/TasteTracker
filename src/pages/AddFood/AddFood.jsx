@@ -25,6 +25,7 @@ const AddFood = () => {
     const email = form.email.value;
     const name = form.name.value;
     const description = form.description.value;
+    const purchaseCount = 0;
 
 
     const newFood = {
@@ -37,6 +38,7 @@ const AddFood = () => {
       description,
       email,
       name,
+      purchaseCount
     }
 
     console.log(newFood);
@@ -166,3 +168,5 @@ const AddFood = () => {
 };
 
 export default AddFood;
+
+

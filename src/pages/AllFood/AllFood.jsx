@@ -43,6 +43,8 @@ const AllFood = () => {
         <h2 className="text-xl md:text-3xl font-bold mt-16 mb-4 text-center">All Categories Foods</h2>
         <p className="w-2/3 text-sm md:text-base text-center mx-auto mb-8 font-semibold">Users can explore a comprehensive array of culinary delights, ranging from delectable dishes to exotic ingredients, providing a diverse and immersive gastronomic experience</p>
       </section>
+      
+      {/* search */}
       <div className="flex items-center my-4">
         <input
           type="text"
@@ -54,6 +56,7 @@ const AllFood = () => {
         <button onClick={handleSearch} className="bg-green-600 hover:bg-green-700 text-white  px-4 py-2 rounded-md">
           Search
         </button>
+
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 my-6">
         {searchResults.length > 0 ? (

@@ -1,6 +1,6 @@
 
 const MyOrderRow = ({ food, index, handleDelete }) => {
-  const { _id, name, price, quantity, buyerName, buyerEmail, date, image, category, addedBy, origin, description } = food
+  const { _id, name, price,  buyerName, buyerEmail, date, image } = food
 
 
 
