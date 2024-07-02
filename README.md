@@ -24,7 +24,7 @@ TasteTracker is your ultimate destination for exploring culinary delights, disco
 - **Frontend**: React, Tailwind CSS
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
-- **Authentication**: Firebase,JWT
+- **Authentication**: Firebase, JWT
 - **Deployment**: Netlify
 
 # React + Vite
