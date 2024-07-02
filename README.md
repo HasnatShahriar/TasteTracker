@@ -1,6 +1,6 @@
 # TasteTracker
 
-Live Site: [TasteTracker](https://taste-tracker2024.netlify.app)
+**Live Site**: [TasteTracker](https://taste-tracker2024.netlify.app)
 
 ## About
 
@@ -20,7 +20,12 @@ TasteTracker is your ultimate destination for exploring culinary delights, disco
 **Cuisine Focus**: TasteTracker offers an extensive selection of restaurants categorized by cuisine, including Mexican, Italian, Indian, Bangladeshi, Thai, Chinese, Japanese, French, and more, allowing you to explore and indulge in your preferred culinary delights.
 **Dining Styles**: Whether you're craving fast food, casual dining, or fine dining experiences, TasteTracker has you covered.
 
-
+## Used Technologies:
+- **Frontend**: React, Tailwind CSS
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Authentication**: JWT
+- **Deployment**: Netlify
 
 # React + Vite
 
